@@ -103,7 +103,7 @@ DISCORD_TOKEN=your_discord_bot_token_here
 DISCORD_APPROVAL_CHANNEL_ID=your_approval_channel_id
 
 # Database Configuration  
-DATABASE_URL=postgresql://username:password@localhost:5432/database_name
+DATABASE_URL=postgresql://your_username:your_password@localhost:5432/your_database_name
 
 # LinkedIn API (optional)
 LINKEDIN_ACCESS_TOKEN=your_linkedin_access_token
