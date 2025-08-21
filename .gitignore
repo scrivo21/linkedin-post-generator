@@ -1,0 +1,499 @@
+# LinkedIn Post Generator - GitIgnore
+
+# =============================================================================
+# Python
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+.coverage
+.pytest_cache
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# =============================================================================
+# Node.js (for any frontend tooling)
+# =============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+package-lock.json
+yarn.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# =============================================================================
+# macOS
+# =============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# =============================================================================
+# Windows
+# =============================================================================
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =============================================================================
+# Linux
+# =============================================================================
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+# =============================================================================
+# IDEs and Editors
+# =============================================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Temporary_Items
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# =============================================================================
+# Database
+# =============================================================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# PostgreSQL
+*.sql.bak
+*.dump
+
+# =============================================================================
+# Logs and temporary files
+# =============================================================================
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+tmp/
+
+# =============================================================================
+# Discord Bot Specific
+# =============================================================================
+
+# Environment files (CRITICAL - contains secrets)
+.env*
+!.env.example
+discord-env/.env*
+
+# Bot token and API keys
+token.txt
+bot_token.txt
+*.token
+*.key
+
+# Discord bot data
+discord_cache/
+bot_data/
+
+# =============================================================================
+# LinkedIn API
+# =============================================================================
+
+# OAuth tokens and secrets
+linkedin_tokens.json
+oauth_*.json
+*.oauth
+
+# LinkedIn API cache
+linkedin_cache/
+
+# =============================================================================
+# Database and Credentials
+# =============================================================================
+
+# PostgreSQL
+*.pgpass
+pg_service.conf
+
+# Database dumps
+*.dump
+*.backup
+*.bak
+
+# Connection strings and credentials
+credentials.json
+secrets.json
+config.json
+!config.example.json
+
+# =============================================================================
+# Docker
+# =============================================================================
+docker-compose.override.yml
+.dockerignore
+
+# =============================================================================
+# Generated Files
+# =============================================================================
+
+# Generated images and mockups
+generated_images/
+mockups/
+previews/
+*.png.generated
+*.jpg.generated
+
+# Generated reports
+reports/
+analytics/
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# =============================================================================
+# iOS/macOS Development (for future native app)
+# =============================================================================
+
+# Xcode
+iosx_app/build/
+iosx_app/DerivedData/
+iosx_app/*.pbxuser
+iosx_app/*.mode1v3
+iosx_app/*.mode2v3
+iosx_app/*.perspectivev3
+iosx_app/xcuserdata/
+iosx_app/project.xcworkspace/xcuserdata/
+iosx_app/*.xccheckout
+iosx_app/*.moved-aside
+
+# CocoaPods
+iosx_app/Pods/
+iosx_app/Podfile.lock
+
+# Carthage
+iosx_app/Carthage/Build/
+
+# Swift Package Manager
+iosx_app/.build/
+iosx_app/Packages/
+iosx_app/*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+
+# =============================================================================
+# CI/CD and Deployment
+# =============================================================================
+
+# Kubernetes secrets
+k8s-secrets.yaml
+secrets.yaml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# =============================================================================
+# Monitoring and Analytics
+# =============================================================================
+
+# Prometheus data
+prometheus_data/
+
+# Grafana data
+grafana_data/
+
+# Log aggregation
+fluentd/
+elasticsearch_data/
+
+# =============================================================================
+# Testing
+# =============================================================================
+
+# Test artifacts
+test_results/
+test_reports/
+coverage_reports/
+
+# Pytest
+.pytest_cache/
+
+# =============================================================================
+# Documentation
+# =============================================================================
+
+# Sphinx build
+docs/_build/
+docs/build/
+
+# =============================================================================
+# Local Development
+# =============================================================================
+
+# Local configuration overrides
+local_config.py
+dev_settings.py
+
+# Local scripts
+local_*.sh
+dev_*.py
+
+# Sandbox files
+sandbox/
+scratch/
+
+# Personal notes
+notes.md
+TODO.md
+PERSONAL_NOTES.md
+
+# =============================================================================
+# Security
+# =============================================================================
+
+# Private keys
+*.pem
+*.crt
+*.csr
+*.key
+private_keys/
+
+# SSL certificates
+ssl/
+certs/
+
+# GPG keys
+*.gpg
+*.asc
+
+# =============================================================================
+# Backup and Archives
+# =============================================================================
+*.tar.gz
+*.zip
+*.rar
+*.7z
+backup_*/
+archives/

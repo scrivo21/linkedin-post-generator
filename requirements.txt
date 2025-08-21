@@ -1,0 +1,13 @@
+discord.py==2.3.2
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.23
+asyncpg==0.29.0
+python-dotenv==1.0.0
+pillow==10.1.0
+aiohttp==3.9.1
+requests==2.31.0
+linkedin-api==2.2.0
+python-linkedin-v2==0.9.0
+
+# Enhanced terminal output
+colorama>=0.4.4

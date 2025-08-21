@@ -1,0 +1,72 @@
+name: ❓ Question
+description: Ask a question about the LinkedIn Post Generator
+title: "[QUESTION] "
+labels: ["question", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about the LinkedIn Post Generator? We're here to help!
+        
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: Please be as specific as possible...
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What area is your question about?
+      options:
+        - Setup and Installation
+        - Configuration
+        - Discord Bot Usage
+        - LinkedIn Integration
+        - Database and Storage
+        - Troubleshooting
+        - Feature Usage
+        - Development and Contributing
+        - Native App Migration
+        - General Usage
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Please provide any relevant context or background information
+      placeholder: |
+        - What are you trying to accomplish?
+        - What have you already tried?
+        - Any relevant system information
+        
+  - type: textarea
+    id: attempted-solutions
+    attributes:
+      label: What Have You Tried?
+      description: List any solutions you've already attempted
+      placeholder: |
+        - Checked documentation
+        - Searched existing issues
+        - Tried configuration changes
+        - etc.
+        
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: I have checked the documentation
+          required: true
+        - label: I have provided sufficient context for my question
+          required: true
