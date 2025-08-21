@@ -99,15 +99,18 @@ This system consists of three main components:
 
 ```env
 # Discord Configuration
-DISCORD_TOKEN=your_discord_bot_token
-DISCORD_APPROVAL_CHANNEL_ID=123456789012345678
+DISCORD_TOKEN=your_discord_bot_token_here
+DISCORD_APPROVAL_CHANNEL_ID=your_approval_channel_id
 
 # Database Configuration  
-DATABASE_URL=postgresql://user:password@localhost:5432/linkedin_posts
+DATABASE_URL=postgresql://username:password@localhost:5432/database_name
 
 # LinkedIn API (optional)
-LINKEDIN_ACCESS_TOKEN=your_linkedin_token
-LINKEDIN_PERSON_ID=your_person_id
+LINKEDIN_ACCESS_TOKEN=your_linkedin_access_token
+LINKEDIN_PERSON_ID=your_linkedin_person_id
+
+# Optional: n8n Webhook Integration
+N8N_WEBHOOK_URL=your_n8n_webhook_url
 ```
 
 ## 📈 Workflow
