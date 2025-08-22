@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS linkedin_posts (
     image_prompt TEXT,
     
     -- Status tracking
-    status VARCHAR(20) DEFAULT 'pending' NOT NULL,
-    CHECK (status IN ('pending', 'approved', 'rejected', 'published', 'failed')),
+    status VARCHAR(25) DEFAULT 'pending' NOT NULL,
+    CHECK (status IN ('pending', 'approved_for_socials', 'declined', 'posted', 'failed')),
     
     -- Timestamps
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS linkedin_posts (
     
     -- Approval tracking
     approved_by VARCHAR(100),
+    discord_approver VARCHAR(100),  -- Discord username who approved/rejected
     rejection_reason TEXT,
     
     -- Discord integration
@@ -61,7 +62,7 @@ ORDER BY created_at ASC;
 -- Create a view for approved posts ready for publishing
 CREATE OR REPLACE VIEW approved_posts_for_publishing AS
 SELECT * FROM linkedin_posts 
-WHERE status = 'approved' 
+WHERE status = 'approved_for_socials' 
 AND linkedin_post_id IS NULL
 ORDER BY approved_at ASC;
 
@@ -91,7 +92,7 @@ RETURNS TABLE(
     pending_posts INTEGER,
     approved_posts INTEGER,
     published_posts INTEGER,
-    rejected_posts INTEGER,
+    declined_posts INTEGER,
     failed_posts INTEGER
 ) AS $$
 BEGIN
@@ -99,9 +100,9 @@ BEGIN
     SELECT 
         COUNT(*)::INTEGER as total_posts,
         COUNT(CASE WHEN status = 'pending' THEN 1 END)::INTEGER as pending_posts,
-        COUNT(CASE WHEN status = 'approved' THEN 1 END)::INTEGER as approved_posts,
-        COUNT(CASE WHEN status = 'published' THEN 1 END)::INTEGER as published_posts,
-        COUNT(CASE WHEN status = 'rejected' THEN 1 END)::INTEGER as rejected_posts,
+        COUNT(CASE WHEN status = 'approved_for_socials' THEN 1 END)::INTEGER as approved_posts,
+        COUNT(CASE WHEN status = 'posted' THEN 1 END)::INTEGER as published_posts,
+        COUNT(CASE WHEN status = 'declined' THEN 1 END)::INTEGER as declined_posts,
         COUNT(CASE WHEN status = 'failed' THEN 1 END)::INTEGER as failed_posts
     FROM linkedin_posts;
 END;
@@ -111,18 +112,18 @@ $$ LANGUAGE plpgsql;
 CREATE OR REPLACE FUNCTION update_post_timestamps()
 RETURNS TRIGGER AS $$
 BEGIN
-    -- Update approved_at when status changes to approved
-    IF NEW.status = 'approved' AND OLD.status != 'approved' THEN
+    -- Update approved_at when status changes to approved_for_socials
+    IF NEW.status = 'approved_for_socials' AND OLD.status != 'approved_for_socials' THEN
         NEW.approved_at = CURRENT_TIMESTAMP;
     END IF;
     
-    -- Update published_at when status changes to published
-    IF NEW.status = 'published' AND OLD.status != 'published' THEN
+    -- Update published_at when status changes to posted
+    IF NEW.status = 'posted' AND OLD.status != 'posted' THEN
         NEW.published_at = CURRENT_TIMESTAMP;
     END IF;
     
-    -- Update rejected_at when status changes to rejected
-    IF NEW.status = 'rejected' AND OLD.status != 'rejected' THEN
+    -- Update rejected_at when status changes to declined
+    IF NEW.status = 'declined' AND OLD.status != 'declined' THEN
         NEW.rejected_at = CURRENT_TIMESTAMP;
     END IF;
     
@@ -145,7 +146,7 @@ DECLARE
 BEGIN
     DELETE FROM linkedin_posts 
     WHERE created_at < CURRENT_TIMESTAMP - INTERVAL '1 day' * days_to_keep
-    AND status IN ('published', 'rejected');
+    AND status IN ('posted', 'declined');
     
     GET DIAGNOSTICS deleted_count = ROW_COUNT;
     RETURN deleted_count;
