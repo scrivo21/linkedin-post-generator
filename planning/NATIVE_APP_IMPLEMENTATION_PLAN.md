@@ -1,5 +1,7 @@
 # Native iOS/macOS LinkedIn Manager App Implementation Plan
 
+**Associated Feature Branch:** `feature/ios-app-development`
+
 ## Executive Summary
 
 This document provides a comprehensive roadmap for transforming the existing Discord bot LinkedIn Post Generator system into a native iOS and macOS application using SwiftUI frontend with Python FastAPI backend service.
